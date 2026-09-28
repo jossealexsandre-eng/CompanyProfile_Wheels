@@ -241,14 +241,6 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
             >
               <span>{lang === 'id' ? 'RESERVASI MEJA' : 'RESERVE SANCTUARY'}</span>
             </a>
-
-            <a
-              href="#matchmaker"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#2b2118]/80 backdrop-blur-sm border border-[#e6b17e]/40 text-[#e6b17e] text-xs font-semibold uppercase tracking-[0.16em] hover:bg-[#e6b17e] hover:text-[#1e150f] transition-all duration-300"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>{lang === 'id' ? 'CARI RASA KOPI ANDA' : 'FIND YOUR COFFEE'}</span>
-            </a>
           </motion.div>
         </motion.div>
       </div>
