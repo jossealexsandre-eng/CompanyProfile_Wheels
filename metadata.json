@@ -1,0 +1,6 @@
+{
+  "name": "Wheels Coffee Roasters — Eyckman 32",
+  "description": "Sanctuary of slow craft and provenance on Eyckman Street, Bandung. Thoughtfully roasted specialty coffee, culinary creations, and spaces designed for unhurried moments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

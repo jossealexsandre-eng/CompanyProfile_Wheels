@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #2c1a0e;
+  --color-primary-container: #422d1d;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #d9beab;
+
+  --color-secondary: #8c5e39;
+  --color-secondary-container: #f7d7be;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #4a280e;
+
+  --color-accent: #c48b52;
+  --color-accent-light: #f5deca;
+
+  --color-surface: #faf6f0;
+  --color-surface-dim: #ece4d8;
+  --color-surface-bright: #ffffff;
+  --color-surface-container: #f3ece1;
+  --color-surface-container-high: #e9e0d2;
+  --color-surface-container-highest: #ded3c1;
+  --color-on-surface: #1e1b18;
+  --color-on-surface-variant: #5c534a;
+  --color-outline: #8c8074;
+  --color-outline-variant: #d5c8b8;
+
+  --color-background: #faf6f0;
+  --color-on-background: #1e1b18;
+
+  --font-serif: "EB Garamond", Georgia, serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+}
+
+/* Typewriter Cursor — used in Hero */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Subtle Shimmer Sweep for aesthetic badges */
+@keyframes shimmerSweep {
+  0% { transform: translateX(-150%); }
+  50%, 100% { transform: translateX(180%); }
+}
+.shimmer-sweep {
+  animation: shimmerSweep 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+
+/* Luxury Dark Mode Palette with Rich Obsidian & Warm Roast Accents */
+.dark {
+  --color-background: #0d0b09;
+  --color-on-background: #f7f2ea;
+  --color-surface: #14110e;
+  --color-surface-dim: #090807;
+  --color-surface-bright: #1c1814;
+  --color-surface-container: #1b1713;
+  --color-surface-container-high: #241f1a;
+  --color-surface-container-highest: #2e2822;
+  --color-on-surface: #f7f2ea;
+  --color-on-surface-variant: #c4b8aa;
+  --color-outline: #8c7e6f;
+  --color-outline-variant: #3d342c;
+
+  --color-primary: #f2e8dc;
+  --color-on-primary: #1e150f;
+  --color-primary-container: #2b2118;
+  --color-on-primary-container: #ecd8c6;
+
+  --color-secondary: #e6b17e;
+  --color-secondary-container: #3d2a1b;
+  --color-on-secondary: #1a0f05;
+  --color-on-secondary-container: #fce2cd;
+
+  --color-accent: #e6b17e;
+  --color-accent-light: #473221;
+}
+
+/* Luxury Slim Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c4b8aa;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3d342c;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8c7e6f;
+}
+
+/* Typography Utility Classes */
+.font-editorial-heading {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* Smooth Infinite Marquee — Reviews */
+@keyframes reviewMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: reviewMarquee 85s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Gallery Marquee — Left Direction (→ kiri) */
+@keyframes galleryLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Gallery Marquee — Right Direction (→ kanan) */
+@keyframes galleryRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.gallery-track-left {
+  display: flex;
+  width: max-content;
+  animation: galleryLeft 38s linear infinite;
+  will-change: transform;
+}
+
+.gallery-track-right {
+  display: flex;
+  width: max-content;
+  animation: galleryRight 44s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.gallery-marquee-row:hover .gallery-track-left,
+.gallery-marquee-row:hover .gallery-track-right {
+  animation-play-state: paused;
+}
+
+/* Subtle Glassmorphism */
+.glass-header {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Organic Coffee Steam Vapor Animation */
+@keyframes steamDrift {
+  0% {
+    transform: translateY(0) scaleX(0.9) scaleY(0.9) translateX(0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateY(-24px) scaleX(1.3) scaleY(1.2) translateX(4px);
+    opacity: 0.45;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-48px) scaleX(1.7) scaleY(1.5) translateX(-5px);
+    opacity: 0;
+  }
+}
+
+.steam-stream-1 {
+  animation: steamDrift 3.2s ease-out infinite;
+  will-change: transform, opacity;
+}
+
+.steam-stream-2 {
+  animation: steamDrift 3.7s ease-out infinite 0.75s;
+  will-change: transform, opacity;
+}
+
+.steam-stream-3 {
+  animation: steamDrift 4.1s ease-out infinite 1.45s;
+  will-change: transform, opacity;
+}
